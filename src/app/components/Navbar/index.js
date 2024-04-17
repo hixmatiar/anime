@@ -1,7 +1,7 @@
 export default function Navbar() {
   return (
-    <div className="bg-black">
-      <div className="navbar bg-black">
+    <div className="">
+      <div className="navbar bg-white">
         <div className="flex-none">
           <button className="btn btn-square btn-ghost">
             <svg
