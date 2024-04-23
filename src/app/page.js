@@ -1,58 +1,37 @@
 import AnimeList from "@/app/components/AnimeList/index";
 import CharactersList from "./components/CharactersList";
+import MangaList from "./components/MangaList";
+import Header from "./components/AnimeList/Header";
 
-export default async function Home() {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_BASE_URL}/top/anime?limit=9`
+export default async function Page() {
+  const response1 = await fetch(
+    `${process.env.NEXT_PUBLIC_API_BASE_URL}/top/anime?limit=10`
   );
 
-  const respon = await fetch(
-    `${process.env.NEXT_PUBLIC_API_BASE_URL}/top/characters?limit=9`
+  const response2 = await fetch(
+    `${process.env.NEXT_PUBLIC_API_BASE_URL}/top/characters?limit=10`
   );
 
-  const anime = await response.json();
-  const characters = await respon.json();
+  const response3 = await fetch(
+    `${process.env.NEXT_PUBLIC_API_BASE_URL}/top/manga?limit=10`
+  );
+
+  const topAnime = await response1.json();
+  const topCharacters = await response2.json();
+  const topManga = await response3.json();
 
   return (
     <main className="bg-white w-100% h-screen">
-      <div className="mt-3">
-        <h1 className="font-semibold capitalize ml-3 mb-5 mt-2 text-2xl xl:text-3xl">
-          top anime
-        </h1>
-      </div>
-      <div className="grid gap-3 mx-3 xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid-cols-2">
-        {anime.data.map((data) => {
-          return (
-            <div key={data.mal_id} className="shadow-xl">
-              <AnimeList
-                title={data.title}
-                images={data.images.webp.image_url}
-                trailer={data.trailer.url}
-              />
-            </div>
-          );
-        })}
-        <AnimeList />
-      </div>
-
-      <div className="mt-3">
-        <h1 className="font-semibold capitalize ml-3 mb-5 mt-12 text-2xl xl:text-3xl">
-          top characters
-        </h1>
-      </div>
-      <div className="grid gap-3 mx-3 xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid-cols-2">
-        {characters.data.map((data) => {
-          return (
-            <div key={data.mal_id} className="shadow-xl">
-              <AnimeList
-                title={data.name}
-                images={data.images.webp.image_url}
-              />
-            </div>
-          );
-        })}
-        <CharactersList />
-      </div>
+      <Header title="top anime" linkTitle="lihat semua" linkHref="/populer" />
+      <AnimeList api={topAnime} />
+      <Header
+        title="top character"
+        linkTitle="lihat semua"
+        linkHref="/populer"
+      />
+      <CharactersList api={topCharacters} />
+      <Header title="top manga" linkTitle="lihat semua" linkHref="/populer" />
+      <MangaList api={topManga} />
     </main>
   );
 }
