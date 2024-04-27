@@ -20,15 +20,9 @@ export default async function Page({ params }) {
   const topManga = await response3.json();
 
   return (
-    <main className="bg-white w-100% h-screen">
-      <Header
-        title={`pencarian untuk ${keyword}...`}
-        linkTitle="lihat semua"
-        linkHref="/populer"
-      />
+    <main className="bg-white w-100% h-screen mt-24">
+      <Header title={`pencarian untuk ${keyword}...`} linkHref="/populer" />
       <AnimeList api={searchAnime} />
-      {/* <CharactersList api={topCharacters} />
-      <MangaList api={topManga} /> */}
     </main>
   );
 }

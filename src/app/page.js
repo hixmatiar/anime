@@ -21,7 +21,7 @@ export default async function Page() {
   const topManga = await response3.json();
 
   return (
-    <main className="bg-white w-100% h-screen">
+    <main className="bg-white w-100% h-screen mt-24">
       <Header title="top anime" linkTitle="lihat semua" linkHref="/populer" />
       <AnimeList api={topAnime} />
       <Header

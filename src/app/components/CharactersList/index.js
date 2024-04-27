@@ -5,7 +5,7 @@ export default function AnimeList({ api }) {
     <div className="grid gap-3 mx-3 xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid-cols-2">
       {api.data.map((anime) => {
         return (
-          <div className="bg-sky-400 h-full card">
+          <div className="bg-sky-400 h-full card shadow-xl">
             <div className="card-title">
               <Image
                 src={anime.images.webp.image_url}

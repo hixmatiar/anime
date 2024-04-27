@@ -1,12 +1,13 @@
 import SearchInput from "@/app/components/SearchInput";
+import Link from "next/link";
 
 export default function Navbar() {
   return (
     <div className="">
-      <div className="navbar bg-white">
+      <div className="navbar bg-white fixed top-0 z-[1] shadow-lg">
         <div className="navbar-start">
-          <div className="flex-none">
-            <button className="btn btn-square btn-ghost">
+          <details className="dropdown">
+            <summary className="m-1 btn btn-ghost">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -20,10 +21,38 @@ export default function Navbar() {
                   d="M4 6h16M4 12h16M4 18h16"
                 ></path>
               </svg>
-            </button>
-          </div>
-          <div className="flex-1">
-            <a className="btn btn-ghost text-base sm:text-xl">My Anime List</a>
+            </summary>
+            <ul className="p-2 shadow menu dropdown-content z-[1] rounded-box w-44 bg-slate-100 border-2 sm:w-52">
+              <li>
+                <Link
+                  href="/"
+                  className="text-base font-semibold capitalize my-1 sm:text-lg"
+                >
+                  top anime
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/"
+                  className="text-base font-semibold capitalize my-1 sm:text-lg"
+                >
+                  top character
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/"
+                  className="text-base font-semibold capitalize my-1 sm:text-lg"
+                >
+                  top manga
+                </Link>
+              </li>
+            </ul>
+          </details>
+          <div className="flex">
+            <Link href="/" className="text-base font-bold sm:text-xl">
+              My Anime List
+            </Link>
           </div>
         </div>
         <div className="navbar-end">
