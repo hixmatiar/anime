@@ -1,10 +1,12 @@
+"use client";
+
 import SearchInput from "@/app/components/SearchInput";
 import Link from "next/link";
 
 export default function Navbar() {
   return (
     <div className="">
-      <div className="navbar bg-white fixed top-0 z-[1] shadow-lg">
+      <div className="navbar bg-emerald-300 shadow-lg">
         <div className="navbar-start">
           <details className="dropdown">
             <summary className="m-1 btn btn-ghost">
@@ -25,26 +27,10 @@ export default function Navbar() {
             <ul className="p-2 shadow menu dropdown-content z-[1] rounded-box w-44 bg-slate-100 border-2 sm:w-52">
               <li>
                 <Link
-                  href="/"
+                  href="/populer"
                   className="text-base font-semibold capitalize my-1 sm:text-lg"
                 >
-                  top anime
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/"
-                  className="text-base font-semibold capitalize my-1 sm:text-lg"
-                >
-                  top character
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/"
-                  className="text-base font-semibold capitalize my-1 sm:text-lg"
-                >
-                  top manga
+                  all anime
                 </Link>
               </li>
             </ul>
